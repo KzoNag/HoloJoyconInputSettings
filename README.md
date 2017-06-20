@@ -1,29 +1,33 @@
-# HoloLens��JoyCon���g����悤�ɐݒ肵��InputManager
+# HoloLensでJoyConを使えるように設定したInputManager
 
-JoyCon(L)(R)��ڑ������Unity�����ꂼ��Joypad1��Joypad2�Ƃ��ĔF������B  
-L��R�̂ǂ��炪Joypad1�łǂ��炪Joypad2�Ȃ̂��͏ꍇ�ɂ���Ă��ꂼ�ꂾ�����B  
-�ڑ����ɂ��̂�������Ȃ������m�F�B  
+JoyCon(L)(R)を接続するとUnityがそれぞれJoypad1とJoypad2として認識する。  
+LとRのどちらがJoypad1でどちらがJoypad2なのかは場合によってそれぞれだった。  
+接続順によるのかもしれないが未確認。  
 
-Unity��InputManager�ݒ�ŁAJoypad1��button 0��A�{�^���Ƃ����悤�ɁA  
-���ׂẴ{�^���ƃX�e�B�b�N�ɂ��ē��͂����蓖�Ă邱�ƂŁA  
-(L)(R)�̓��͂����ꂼ���邱�Ƃ��ł���悤�ɂȂ�B
+UnityのInputManager設定で、Joypad1のbutton 0がAボタンというように、  
+すべてのボタンとスティックについて入力を割り当てることで、  
+(L)(R)の入力をそれぞれ取ることができるようになる。
 
-�������A�O�q�̂Ƃ���ꍇ�ɂ����(L)(R)��Joypad1�E2�̑Ή����ς���Ă��܂��̂ŁA  
-�󋵂ɍ��킹��InputManager��ݒ肷��K�v������B
+ただし、前述のとおり場合によって(L)(R)とJoypad1・2の対応が変わってしまうので、  
+状況に合わせてInputManagerを設定する必要がある。
 
-����ݒ肵�Ȃ����̂��ʓ|�Ȃ̂ŁA
+毎回設定しなおすのが面倒なので、
 
-�E(L)��Joypad1�A(R)��Joypad2�̏ꍇ
-�E(R)��Joypad1�A(L)��Joypad2�̏ꍇ
+・(L)がJoypad1、(R)がJoypad2の場合
+・(R)がJoypad1、(L)がJoypad2の場合
 
-��InputManager�̐ݒ���R�s�[���Ă����A�K�v�ɉ����ď㏑�����邱�Ƃɂ����B  
-ProjectSettings/InputManager.asset��u��������Γ����͂��B  
-�i�G�f�B�^�X�N���v�g�Ƃ��Ŏ���������Ƃ������񂶂����j  
+のInputManagerの設定をコピーしておき、必要に応じて上書きすることにした。  
+ProjectSettings/InputManager.assetを置き換えれば動くはず。  
+（エディタスクリプトとかで自動化するといいかんじかも）  
 
-���ƁA�X�e�B�b�N�̂ǂꂩ�̓��͂��A�G�f�B�^�ł͐���������̂�  
-HoloLens�ɂȂ����ꍇ�ɂ��܂����Ȃ������C������B  
-�������낢�뒲�ׂĂ݂����ǉ����ł����B�B���͏C������Ă邱�ƂɊ��ҁB
+あと、スティックのどれかの入力が、エディタでは正しく取れるのに  
+HoloLensにつないだ場合にうまく取れなかった気がする。  
+当時いろいろ調べてみたけど解決できず。。今は修正されてることに期待。
 
-# ����
-���\�O�Ɏ������̂ŁA�ŐV�̊����Ə󋵂��Ⴄ��������܂���B  
-�g����Unity�̃o�[�W������5.5.0f3�ł��B
+# 注意
+結構前に試したので、最新の環境だと状況が違うかもしれません。  
+使ったUnityのバージョンは5.5.0f3です。
+
+# InputManagerの設定例
+
+![InputManagerの設定例](https://github.com/KzoNag/HoloJoyconInputSettings/blob/master/holojoycon_input.jpg)
